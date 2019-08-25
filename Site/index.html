@@ -1,0 +1,320 @@
+<html>
+  <head>
+    <title>WHFreestyle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" class="next-head">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+
+    <style>
+      body{
+        margin: auto;
+        background-image: url("images/preuzmi.jpg");
+
+      }
+      @font-face {
+        font-family: Gravity-Regular;
+        src: url(Fonts/Gravity-Regular.otf);
+      }
+      @font-face {
+        font-family: Gravity-Light;
+        src: url(Fonts/Gravity-Light.otf);
+      }
+      html {
+        font-family: "Gravity-Light";
+
+      }
+      .title {
+        position: absolute;
+        top: 40%;
+        left: 15%;
+        color: white;
+        width: auto;
+
+      }
+      .firstDesc {
+        background-color: rgb(30, 30, 30);
+        color: white;
+        padding-top: 100px;
+        padding-bottom: 100px;
+        font-family: "Gravity-Light";
+
+
+      }
+      .secondDesc {
+
+        background-color: rgb(250, 250, 250);
+        padding-top: 100px;
+        padding-bottom: 100px;
+        width: 100%;
+
+
+      }
+      #firstDesc1Title {
+        padding-left: 12%;
+
+      }
+      #firstDesc1Sub {
+        padding-left: 12%;
+        padding-right: 12%;
+        font-size: 15px;
+
+
+      }
+      #secondDesc1Title {
+        padding-left: 12%;
+
+
+      }
+      #secondDesc1Sub {
+        padding-left: 12%;
+        padding-right: 12%;
+        font-size: 15px;
+
+      }
+
+
+      .fill {
+        height: 100%;
+        width: 100%;
+      }
+
+      #firstTable {
+        display: inline-block;
+
+        align-self: center;
+        padding-left: 12%;
+        padding-right: 12%;
+        width: auto;
+        font-size: 15px;
+        overflow-x:auto;
+      }
+      #firstTableHead {
+        font-size: 20px;
+      }
+      .unlised1 {
+        float: left;
+        text-align: -webkit-match-parent;
+
+      }
+      .table1wrap{
+        overflow-x:auto;
+      }
+      .table1 {
+
+        width: 100%;
+        padding-left: 12%;
+        padding-right: 12%;
+      }
+      .table1head {
+        font-weight: bold;
+      }
+      .table1body {
+
+      }
+      th, td {
+        text-align: center;
+        padding-top: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 15px;
+      }
+      .socialm-image{
+        padding-left: 10px;
+        padding-right: 10px;
+        width: 32px;
+
+      }
+      .social {
+        padding-left: calc(50% - 68px);
+
+      }
+      tr:nth-child(even) {background-color: #f2f2f2;}
+      .lastDesc {
+        background-color: rgb(30, 30, 30);
+        color: white;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        font-family: "Gravity-Light";
+        width: 100%;
+        float: left;
+
+      }
+      .unlised2 {
+
+        text-align: -webkit-match-parent;
+        padding-left: calc(12% + 20px);
+        padding-right: 12%;
+      }
+      #navbar{
+        position: fixed;
+        float: left;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-color: rgba(0,0,0,0);
+
+
+        width: 100%;
+        transition: 0.3s;
+      }
+      .navbarE {
+        color: white;
+        font-size: 20px;
+        padding-left: 15px;
+        padding-right: 15px;
+
+      }
+      .navbarE:hover {
+        transition: 0.3s;
+        padding-top: 10px;
+        padding-bottom: 10px;
+
+        background-color: rgba(255, 255, 255, 0.5);
+
+      }
+      a {
+        text-decoration: none;
+      }
+
+      .nav {
+        padding-left: 12%;
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <div id="navbar">
+      <div class="nav">
+        <a class="navbarE" href="YDU.html">YouTube Description Updater</a>
+        <a class="navbarE" target="_blank" href="https://www.youtube.com/channel/UCJFYCeXTIc8VeRnFQbSPpUw/videos">YouTube</a>
+      </div>
+
+    </div>
+
+    <script type="text/javascript">
+
+      window.onscroll = function() {scrollFunction()};
+
+      function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+
+          document.getElementById("navbar").style.backgroundColor = "rgba(255,255,255,1)";
+          var nav = document.getElementsByClassName('navbarE')
+          for (var i =0; i < nav.length; i++) {
+            nav[i].style.color = "black";
+
+          }
+        } else {
+          document.getElementById("navbar").style.backgroundColor = "rgba(0,0,0,0)";
+          var nav = document.getElementsByClassName('navbarE')
+          for (var i =0; i < nav.length; i++) {
+            nav[i].style.color = "white";
+
+          }
+        }
+      }
+
+    </script>
+    <div class="title">
+      <h1 id="titleMain">WHFREESTYLE</h1>
+      <h3 id="titleSub">Programmer and game developer</h3>
+
+    </div>
+    <div class="fill">
+
+    </div>
+    <div class="firstDesc">
+      <h4 id="firstDesc1Title">EXPERIANCE</h4>
+      <p id="firstDesc1Sub">I have coded various diffrent projects and have
+        coded with various diffrent languages. I am coding for about 3 years,
+        I started with Unity3D game engine. After about 2 years(1 year ago) I
+        started expanding my knowlage about programming. I started programming
+        with C#, Python, Web Languages and so on. Some of the projects you will
+        see below.
+      </p>
+      <br />
+      <br />
+      <br />
+      <div id="firstTable">
+
+        <ul class="unlised1">
+          <h4>WEBSITES</h4>
+          <li>I coded more then 10 websites</li>
+          <li>YouTube Description Updater</li>
+          <li>Login System</li>
+        </ul>
+
+        <ul class="unlised1">
+          <h4>GAMES</h4>
+          <li>Unity 3 years of experiance.</li>
+          <li>Multiplayer games.</li>
+          <li>Score based games.</li>
+        </ul>
+
+
+        <ul class="unlised1">
+          <h4>BASIC VIDEO PROCESSING</h4>
+          <li>Video Processing with Python and C#</li>
+          <li>Randomly cuts the video and add's a song.</li>
+          <li>FFmpeg</li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="secondDesc">
+      <h4 id="secondDesc1Title">
+        PROJECTS
+      </h4>
+      <div class="table1wrap">
+        <table class="table1">
+          <thead class="table1head">
+            <tr>
+              <td>PROJECTS</td>
+              <td>DESCRITION</td>
+              <td>LANGUAGE</td>
+            </tr>
+          </thead>
+          <tbody class="table1body">
+            <tr>
+              <td>Knights Tour</td>
+              <td>Bruteforces finding of an Knights Tour from any position.</td>
+              <td>C#</td>
+            </tr>
+            <tr>
+              <td>Automatic Video Editor</td>
+              <td>Randomly cuts the video and adds a song on top of it.</td>
+              <td>FFmpeg/Python</td>
+            </tr>
+            <tr>
+              <td>This Website</td>
+              <td>My first full on website.</td>
+              <td>HTML,Css,Js</td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+        <br /><br /><br />
+
+        <h4 id="secondDesc1Title">
+          FUTURE PROJECTS
+        </h4>
+
+        <ul class="unlised2">
+          <li>Website with working web application(YouTube Description Updater)</li>
+          <li>Upgrade my video processing application and publish it.</li>
+          <li>Score based games.</li>
+        </ul>
+
+
+    </div>
+    <div class="lastDesc">
+      <div class="social">
+        <a href="https://www.youtube.com/channel/UCJFYCeXTIc8VeRnFQbSPpUw/videos" target="_blank"><image src="Images/YL.jpg" class="socialm-image"></a>
+        <image src="Images/IL.png" class="socialm-image">
+        <image src="Images/FL.png" class="socialm-image">
+      </div>
+    </div>
+  </body>
+</html>

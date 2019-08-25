@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta charset="utf-8">
+    <title>YouTube Description Updater</title>
+
+    <style>
+      body{
+        margin: auto;
+        background-color: rgb(30,30,30);
+
+      }
+      @font-face {
+        font-family: Gravity-Regular;
+        src: url(Fonts/Gravity-Regular.otf);
+      }
+      @font-face {
+        font-family: Gravity-Light;
+        src: url(Fonts/Gravity-Light.otf);
+      }
+      html {
+        font-family: "Gravity-Light";
+
+      }
+      .fill {
+        padding-top:70px;
+      }
+      #inputDiv {
+        color: white;
+        padding-left: 12%;
+
+      }
+      .inputParts {
+        padding: 0px 10px 0px 10px;
+        float: left;
+      }
+      #navbar{
+        padding-left: 12%;
+        position: fixed;
+
+        padding-top: 15px;
+        padding-bottom: 15px;
+        background-color: white;
+        width: 100%;
+        transition: 0.3s;
+      }
+      .nav {
+        float: left;
+      }
+      .navbarE {
+        text-decoration: none;
+        color: black;
+        font-size: 20px;
+        padding-left: 15px;
+        padding-right: 15px;
+
+      }
+      #submitBut {
+        padding: 5px 60px 5px 60px;
+        border: none;
+        text-decoration: none;
+        decoration: none;
+        background-color: white;
+      }
+      .LogIn-Button {
+        float: right;
+        padding-right: 12%;
+
+      }
+      #inputDiv, #signout-button {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+
+    <script src="main.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script type="text/javascript">
+      function authenticate() {
+
+        return gapi.auth2.getAuthInstance()
+            .signIn({scope: "https://www.googleapis.com/auth/youtube.force-ssl"})
+
+            .then(function() { console.log("Sign-in successful");
+            document.getElementById("inputDiv").style.display = "block";
+            document.getElementById("authorize-button").style.display = "none"; },
+                  function(err) { console.error("Error signing in", err); });
+
+      }
+      function loadClient() {
+        gapi.client.setApiKey("AIzaSyDAdCaAJYNCBX3W_LybaO1rKOFL4Bcg6o0");
+        return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
+            .then(function() { console.log("GAPI client loaded for API"); },
+                  function(err) { console.error("Error loading GAPI client for API", err); });
+      }
+      // Make sure the client is loaded and sign-in is complete before calling this method.
+      function execute() {
+
+        gapi.client.youtube.playlistItems.list({
+          "part": "snippet",
+          "playlistId": "UUJFYCeXTIc8VeRnFQbSPpUw",
+          "maxResults": document.getElementById("maxResult").value
+        })
+        .then(response => {
+          console.log(response);
+          const channel = response.result.items;
+          for (var item in channel) {
+            var thumbnail = channel[item].snippet.thumbnails.high.url
+            document.getElementById("videos").innerHTML += '<div style="padding-left: 12%; padding-right: 12%; overflow: auto;"> <image  style="float: left; " src=' + thumbnail + ' width="240" height="180" ></image><div float: left;> <h4  style="color: white; "" >'+ channel[item].snippet.title +'</h4> <h6  style="color: white;" >'+ document.getElementById("newDesc").value +'</h6></div> </div>';
+            gapi.client.youtube.videos.update({
+       "part": "snippet,status,localizations",
+       "resource": {
+         "id": channel[item].snippet.resourceId.videoId,
+         "snippet": {
+           "categoryId": 22,
+
+           "description": document.getElementById("newDesc").value,
+
+           "title": channel[item].snippet.title
+         }
+
+
+       }
+     })
+     .then(function(response) {
+                // Handle the results here (response.result has the parsed body).
+                console.log("Response", response);
+              },
+              function(err) { console.error("Execute error", err); });
+        }
+
+
+})
+
+}
+
+
+      gapi.load("client:auth2", function() {
+        gapi.auth2.init({client_id: "547467967312-d9hhm7ropgj61itoj34fpdn00v7qnquv.apps.googleusercontent.com"});
+      });
+    </script>
+    <div id="navbar">
+
+      <div class="nav">
+        <a class="navbarE" href="index.html">Home</a>
+        <a class="navbarE" target="_blank" href="https://www.youtube.com/channel/UCJFYCeXTIc8VeRnFQbSPpUw/videos">YouTube</a>
+      </div>
+      <div class="LogIn-Button">
+        <button onclick="authenticate().then(loadClient)" class="btn white" style="color: black;" id="authorize-button"
+        type="button" name="
+        LogIn-Button">LogIn</button>
+
+
+
+      </div>
+    </div>
+    <div class="fill">
+
+    </div>
+
+    <div id="inputDiv">
+
+      <br><br><br><br>
+      <div class="inputParts">
+        <h4>How many videos: </h4>
+        <input style="color: white" id="maxResult" type="text" name="maxValue" value="">
+      </div>
+      <div class="inputParts">
+        <h4>Your new Description: </h4>
+        <textarea style="color: white;" cols="100"
+       rows="5"
+       style="width:200px; height:50px;"  type="text" name="desc" value="" id="newDesc" ></textarea>
+      </div>
+      <div style="padding-top: 4%;" class="inputParts">
+      <button class="btn white" style="color: black; " onclick="execute()"
+      type="button" name="
+      Execute-Button">Execute</button>
+
+
+      <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+
+    <!--<script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()" onreadystatechange="if (this.readyState === 'complete') this.onload()">
+    </script>-->
+
+    </script>
+      </div>
+    </div>
+    <br><br><br><br><br><br><br><br>
+    <div id="videos">
+
+    </div>
+
+  </body>
+</html>
